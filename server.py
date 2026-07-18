@@ -17,7 +17,11 @@ from mcp.server.fastmcp import FastMCP
 from google.ads.googleads.client import GoogleAdsClient
 from google.ads.googleads.errors import GoogleAdsException
 
-mcp = FastMCP("google-ads-mcp")
+mcp = FastMCP(
+    "google-ads-mcp",
+    host="0.0.0.0",
+    port=int(os.environ.get("PORT", 8000)),
+)
 
 def get_client():
     """Builds a Google Ads API client from environment variables."""
